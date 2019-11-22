@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--Start of Tawk.to Script -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5d04865753d10a56bd7a304d/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./css/styles-contribute.css">
+  <title>Rode</title>
+</head>
+  <body>
+    <nav>
+      <a href="/" class="navlink">Rode</a>
+      <a href="/logout" class="signout" style="float:right">Sign Out</a>
+      <a href="https://www.github.com/navneetsn18" class="fa fa-github" style="float:right; font-size: 36px;" target="blank"></a>
+      <a href="https://www.facebook.com/navneetsn18" class="fa fa-facebook" style="float:right" target="blank"></a>   
+      <a href="https://twitter.com/navneetsn18/" class="fa fa-twitter" style="float:right" target="blank"></a>
+      <a href="https://www.instagram.com/navneetsn18/" class="fa fa-instagram" style="float:right" target="blank"></a>
+    </nav>
+    <form action="/submit-contribute" method="post" name="cform">
+            <input type="text" name="start" id="start" placeholder="Start">Start point
+            <div class="dropdown">
+                <button class="dropbtn">Select your ways</button>
+                <div class="dropdown-content">
+                  <a href="#" onclick="renFun()">Direct Route</a>
+                  <a href="#" onclick="renFun()">2 Change route</a>
+                  <a href="#"onclick="renFun()">3 Change Route</a>
+                  <a href="#"onclick="renFun()">3+ Change Route</a>
+                </div>
+              </div>
+              <div id="veh">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Transport</th>
+                            <th>Time</th>
+                            <th>Expenditure</th>
+                            <th>Comfort</th>
+                        </tr>
+                        <tr>
+                            <th><input type="checkbox" name="Cab" id="Cab"> Cab</th>
+                            <th><input type="text" placeholder="Time in mins" name="cab-time" id="cab-time"></th>
+                            <th><input type="text" placeholder="Amount in rupees" name="can-amount" id="cab-amount"></th>
+                            <th><input type="text" placeholder="Rating" name="cab-rating" id="cab-rating"></th>
+                        </tr>
+                        <tr>
+                            <th><input type="checkbox" name="bus" id="bus"> Bus</th>
+                            <th><input type="text" placeholder="Time in mins" name="bus-time" id="bus-time"></th>
+                            <th><input type="text" placeholder="Amount in rupees" name="bus-amount" id="bus-amount"></th>
+                            <th><input type="text" placeholder="Rating" name="bus-rating" id="bus-rating"></th>
+                        </tr>
+                        <tr>
+                            <th><input type="checkbox" name="auto" id="auto"> Auto</th>
+                            <th><input type="text" placeholder="Time in mins" name="auto-time" id="auto-time"></th>
+                            <th><input type="text" placeholder="Amount in rupees" name="auto-amount" id="auto-amount"></th>
+                            <th><input type="text" placeholder="Rating" name="auto-rating" id="auto-rating"></th>
+                        </tr>
+                        <tr>
+                            <th><input type="checkbox" name="metro" id="metro"> Metro</th>
+                            <th><input type="text" placeholder="Time in mins" name="metro-time" id="metro-time"></th>
+                            <th><input type="text" placeholder="Amount in rupees" name="metro-amount" id="metro-time"></th>
+                            <th><input type="text" placeholder="Rating" name="metro-rating" id="metro-rating"></th>
+                        </tr>
+                    </thead>
+                </table>
+              </div>
+              <input type="text" name="end" placeholder="end" name="end" id="name">End point
+              <input type="submit" value="Submit">
+        </form>
+        <script>
+            function renFun(){
+                var x = document.getElementById("veh");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+        </script>
+    <br>
+</body>
+</html>
