@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 var reg_post_success = require('./reg_post_success');
-mongoose.connect('mongodb://localhost:27017/PEPROMENO'); 
+mongoose.connect('mongodb://localhost:27017/Rode'); 
 var db=mongoose.connection; 
 db.on('error', console.log.bind(console, "connection error")); 
 db.once('open', function(callback){ 
@@ -103,7 +103,7 @@ app.post('/login-success', function (req, res) {
 				console.log("Login Successful.");
 				req.session.user = user;
 				console.log("Session Started.");
-				res.redirect("/PEPROMENO");
+				res.redirect("/Rode");
 			}
 			else
 			{
@@ -118,15 +118,45 @@ app.post('/login-success', function (req, res) {
 
 //Login Stop
 
-// Index part start
+//Contribute Page
 
-app.get('/PEPROMENO',function(req,res)
+app.get('/contribute',function(req,res)
 {
 	if(!req.session.user)
 	{
 		res.redirect("/error");
 	}
-	res.sendFile('./public/PEPROMENO.html',{
+    res.sendFile('./public/contribute.html',{
+        root : path.join(__dirname+'/')
+	})
+});
+
+app.post('/submit-contribution', function(req,res){ 
+	var name = req.body.name;
+	var email = req.body.email; 
+	var data = { 
+		"name": name, 
+		"email":email, 
+		"password":pass,
+	} 
+	db.collection('users').insertOne(data,function(err, collection){ 
+	if (err) throw err; 
+		console.log("Record inserted Successfully"); 	
+	});
+	return res.redirect('/contribute');
+}); 
+
+//Contribute End
+
+// Index part start
+
+app.get('/Rode',function(req,res)
+{
+	if(!req.session.user)
+	{
+		res.redirect("/error");
+	}
+	res.sendFile('./public/Rode.html',{
         root : path.join(__dirname+'/')
     })
 });

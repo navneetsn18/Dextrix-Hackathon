@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <!--Start of Tawk.to Script-->
+  <!--Start of Tawk.to Script->
   <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
@@ -13,30 +13,52 @@
     s0.parentNode.insertBefore(s1,s0);
     })();
   </script>
-  <!--End of Tawk.to Script-->
+  <]!--End of Tawk.to Script-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/styles-login.css">
-    <title>Login</title>
-</head> 
-<body>
+  <link rel="stylesheet" type="text/css" href="./css/styles-Rode.css">
+  <title>Road</title>
+</head>
+  <body>
     <nav>
-      <a href="/" class="navlink">Rode</a>
+      <a href="/" class="navlink">Road</a>
+      <a href="/logout" class="signout" style="float:right">Sign Out</a>
       <a href="https://www.github.com/navneetsn18" class="fa fa-github" style="float:right; font-size: 36px;" target="blank"></a>
       <a href="https://www.facebook.com/navneetsn18" class="fa fa-facebook" style="float:right" target="blank"></a>   
       <a href="https://twitter.com/navneetsn18/" class="fa fa-twitter" style="float:right" target="blank"></a>
       <a href="https://www.instagram.com/navneetsn18/" class="fa fa-instagram" style="float:right" target="blank"></a>
+      <a href="/contribute" class="contribute" style="float:right">Contribute</a>
     </nav>
     <br>
-    <h1>Login</h1>
-    <div class="container">
-        <form action="/login-success" method="POST">
-            <input type="email" name="email" placeholder="Username" id="username" required>
-            <input type="password" name="password" placeholder="Password" id="password" required>
-            <input type="submit" value="Log In">
-        </form>
-    </div>
-</body>
+    <form action="POST">
+      
+    </form>
+    <br>
+    <div id="map" ></div>
+    <script>
+      async function renderLocation(mapObject)
+      {
+        var api,lat,lng
+        let proxy = "https://cors-anywhere.herokuapp.com/";
+        if(navigator.geolocation)
+          api=await navigator.geolocation.getCurrentPosition(pos=>{
+            mapObject.setCenter({lat: pos.coords.latitude,lng: pos.coords.longitude})
+          })
+          return {
+            api: api,
+            lat: lat,
+            lng: lng,
+          }
+      }
+      function renderMap() {
+        const map=new google.maps.Map(document.getElementById('map'), {
+          zoom: 18
+        })
+        renderLocation(map)
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgdpN-q7pwPsoPufP3CKsaBuYqgHF27k0&callback=renderMap"></script>
+  </body>
 </html>
