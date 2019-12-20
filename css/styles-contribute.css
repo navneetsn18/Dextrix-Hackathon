@@ -180,3 +180,8 @@ p,h2{
     display: none;
 }
 
+.gform{
+  position: relative; 
+  left: -174px; 
+  top: 49px;
+}
